@@ -8,6 +8,7 @@ const ctrl = require("../controllers");
 router.get("/todos", ctrl.todo.indexTodo);
 router.post("/todos", ctrl.todo.createTodo);
 router.put("/todos/:id", ctrl.todo.updateTodo);
+router.delete("/todos/:id", ctrl.todo.destroyTodo);
 
 
 // ----
