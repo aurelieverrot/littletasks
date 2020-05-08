@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose').set('debug', true);
 const DB_URI = process.env.MONGODB_URI;
 
 mongoose.connect(DB_URI, {
@@ -7,9 +7,10 @@ mongoose.connect(DB_URI, {
   useCreateIndex: true,
   useUnifiedTopology: true,
 })
+
   .then(() => console.log('MongoDB connected successfully'))
   .catch((err) => console.log(err));
 
-// module.exports = {
-
-// }
+module.exports = {
+  Todo: require("./Todo")
+}
