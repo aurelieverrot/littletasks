@@ -7,6 +7,7 @@ const ctrl = require("../controllers");
 // Todos Routes
 router.get("/todos", ctrl.todo.indexTodo);
 router.post("/todos", ctrl.todo.createTodo);
+router.put("/todos/:id", ctrl.todo.updateTodo);
 
 
 // ----

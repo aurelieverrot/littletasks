@@ -17,7 +17,16 @@ const createTodo = (req, res) => {
   })
 };
 
+const updateTodo = (req, res) => {
+  db.Todo.findOneAndUpdate(req.params._id, req.body, (err, updatedTodo) => {
+    if (err) return res.status(404).json({ status: 404, error: "Cannot update todo"})
+
+    res.json(updatedTodo)
+  })
+}
+
 module.exports = {
   indexTodo,
-  createTodo
+  createTodo,
+  updateTodo
 }
