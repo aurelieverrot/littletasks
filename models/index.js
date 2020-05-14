@@ -12,5 +12,5 @@ mongoose.connect(DB_URI, {
   .catch((err) => console.log(err));
 
 module.exports = {
-  Todo: require("./Todo")
+  Task: require("./Task")
 }

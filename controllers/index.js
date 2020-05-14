@@ -1,3 +1,3 @@
 module.exports = {
-  todo : require('./TodoController')
+  task : require('./TaskController')
 }

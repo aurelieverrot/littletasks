@@ -2,6 +2,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 require('dotenv').config()
 
@@ -9,7 +10,15 @@ const PORT = process.env.PORT || 4000;
 const routes = require('./routes');
 const db = require('./models');
 
+const corsOptions = {
+  origin: ['http://localhost:3000'],
+  methods: "GET,POST,PUT,DELETE",
+  credentials: true, //allows session cookies to be sent back and forth
+  optionsSuccessStatus: 200 //legacy browsers
+}
+
 // Middleware
+app.use(cors(corsOptions));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const TodoSchema = new Schema({
+const TaskSchema = new Schema({
   description: {
     type: String,
     required: 'Enter description'
@@ -16,4 +16,4 @@ const TodoSchema = new Schema({
   }
 })
 
-module.exports = mongoose.model('Todo', TodoSchema);
+module.exports = mongoose.model('Task', TaskSchema);

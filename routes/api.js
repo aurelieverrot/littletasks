@@ -4,11 +4,11 @@ const ctrl = require("../controllers");
 
 // on api/v1/...
 
-// Todos Routes
-router.get("/todos", ctrl.todo.indexTodo);
-router.post("/todos", ctrl.todo.createTodo);
-router.put("/todos/:id", ctrl.todo.updateTodo);
-router.delete("/todos/:id", ctrl.todo.destroyTodo);
+// Tasks Routes
+router.get("/tasks", ctrl.task.indexTask);
+router.post("/tasks", ctrl.task.createTask);
+router.put("/tasks/:id", ctrl.task.updateTask);
+router.delete("/tasks/:id", ctrl.task.destroyTask);
 
 
 // ----
