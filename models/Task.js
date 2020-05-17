@@ -13,6 +13,11 @@ const TaskSchema = new Schema({
   status: {
     type: Boolean,
     default: false
+  },
+  kiddo: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Task",
+    required: 'Select a kid'
   }
   
 })
