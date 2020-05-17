@@ -14,6 +14,7 @@ const TaskSchema = new Schema({
     type: Boolean,
     default: false
   }
+  
 })
 
 module.exports = mongoose.model('Task', TaskSchema);
