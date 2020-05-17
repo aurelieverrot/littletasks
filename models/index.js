@@ -12,5 +12,6 @@ mongoose.connect(DB_URI, {
   .catch((err) => console.log(err));
 
 module.exports = {
-  Task: require("./Task")
+  Task: require("./Task"),
+  Kiddo: require("./Kiddo")
 }

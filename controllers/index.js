@@ -1,3 +1,4 @@
 module.exports = {
-  task : require('./TaskController')
+  task : require('./TaskController'),
+  kiddo : require('./KiddoController')
 }
