@@ -10,6 +10,10 @@ router.post("/tasks", ctrl.task.createTask);
 router.put("/tasks/:id", ctrl.task.updateTask);
 router.delete("/tasks/:id", ctrl.task.destroyTask);
 
+// Kiddos Routes
+router.get("/kiddos", ctrl.kiddo.indexKiddo);
+router.post("/kiddos", ctrl.kiddo.createKiddo);
+router.delete("/kiddos/:id", ctrl.kiddo.destroyKiddo);
 
 // ----
 module.exports = router;
