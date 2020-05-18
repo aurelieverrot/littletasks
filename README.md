@@ -5,3 +5,7 @@ My kids were in 3rd and 5th grade, with a lot to do everyday on their computers.
 
 I imagined something to help them take responsability of their workload everyday: a to do list with rewards!
 It helps parents to keep track of what they have to do everyday, and what is done.
+
+## Link to the Front End repository
+
+https://github.com/aurelieverrot/littletasks-UI
