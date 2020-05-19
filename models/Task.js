@@ -16,7 +16,7 @@ const TaskSchema = new Schema({
   },
   kiddo: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "Task"
+    ref: "Kiddo"
   }
   
 })
