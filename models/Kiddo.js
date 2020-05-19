@@ -5,6 +5,10 @@ const KiddoSchema = {
   name: {
     type: String,
     required: "Enter kid's name"
+  },
+  totalPoints: {
+    type: Number,
+    default: 0
   }
 }
 
