@@ -2,7 +2,7 @@ const db = require('../models');
 
 
 const indexTask = (req, res) => {
-  db.Task.find({}, (err, allTasks) => {
+  db.Task.find({ status: false}, (err, allTasks) => {
     if (err) return res.status(404).json({ status: 404, error: "Cannot find all tasks"})
 
     res.json(allTasks)
