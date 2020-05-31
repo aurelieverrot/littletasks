@@ -1,25 +1,34 @@
 require('dotenv').config()
+const moment = require('moment')
 
-const db = require('./models');
+const today = moment().startOf('day')
+const {Task,Kiddo} = require('./models');
 
 
 
-db.Kiddo.find({}, (err, allKiddos) => {
+Kiddo.find({}, (err, allKiddos) => {
   if (err) {
     console.log(err)
     return
   }
  
   for (let kid of allKiddos) {
-    db.Task.find({
+    Task.find({
       kiddo: kid._id,
     }, (err, foundTasks) => {
       const isAnyTaskLeft = foundTasks.filter(task => task.status == false).length
-      console.log(kid.name, isAnyTaskLeft > 0)
 
       // update database, increase total points by 1 when isANyTaskLeft not 0
       if (!isAnyTaskLeft) {
-        db.Kiddo.findByIdAndUpdate(kid._id, { $inc: {totalPoints: 1 }}, (err, updatedKiddo) => {
+        let query = {
+          id: kid._id,
+          date: {
+            "$gte": today.toDate(),
+            "$lt": moment(today).endOf('day').toDate()
+          }
+        }
+
+        Kiddo.findByIdAndUpdate(query, { $inc: {totalPoints: 1 }}, (err, updatedKiddo) => {
           console.log(updatedKiddo)
         })
       }
