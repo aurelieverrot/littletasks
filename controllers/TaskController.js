@@ -2,7 +2,7 @@ const db = require('../models');
 
 
 const indexTask = (req, res) => {
-  db.Task.find({ status: false}, (err, allTasks) => {
+  db.Task.find({ status: false }, (err, allTasks) => {
     if (err) return res.status(404).json({ status: 404, error: "Cannot find all tasks"})
 
     res.json(allTasks)
@@ -28,7 +28,7 @@ const updateTask = (req, res) => {
 const destroyTask = (req, res) => {
   db.Task.findByIdAndDelete(req.params.id, (err, deletedTask) => {
     console.log(req.params)
-    if (err) return res.status(404).json({ status: 404, error: "Cannot delete task"})
+    if (err || !deletedTask) return res.status(404).json({ status: 404, error: "Cannot delete task"})
 
     res.json(deletedTask)
   })

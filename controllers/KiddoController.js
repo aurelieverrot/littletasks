@@ -16,6 +16,14 @@ const createKiddo = (req, res) => {
   })
 };
 
+const updateKiddo = (req, res) => {
+  db.Kiddo.findByIdAndUpdate(req.params.id, req.body, (err, updatedKiddo) => {
+    if (err) return res.status(404).json({ status: 404, error: "Cannot update kid"})
+
+    res.json(updatedKiddo)
+  })
+};
+
 const destroyKiddo = (req, res) => {
   db.Kiddo.findByIdAndDelete(req.params.id, (err, deletedKid) => {
     if (err) return res.status(404).json({ status: 404, error: "Cannot delete kid"})
@@ -27,5 +35,6 @@ const destroyKiddo = (req, res) => {
 module.exports = {
   indexKiddo,
   createKiddo,
+  updateKiddo,
   destroyKiddo
 }

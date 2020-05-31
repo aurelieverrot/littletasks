@@ -13,6 +13,7 @@ router.delete("/tasks/:id", ctrl.task.destroyTask);
 // Kiddos Routes
 router.get("/kiddos", ctrl.kiddo.indexKiddo);
 router.post("/kiddos", ctrl.kiddo.createKiddo);
+router.put("kiddos/:id", ctrl.kiddo.updateKiddo);
 router.delete("/kiddos/:id", ctrl.kiddo.destroyKiddo);
 
 // ----
