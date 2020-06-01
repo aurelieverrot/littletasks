@@ -1,8 +1,16 @@
 const db = require('../models');
+const moment = require('moment');
 
+const today = moment().startOf('day');
 
 const indexTask = (req, res) => {
-  db.Task.find({ status: false }, (err, allTasks) => {
+  db.Task.find({ 
+    status: false,
+    date: {
+      "$gte": today.toDate(),
+      "$lt": moment(today).endOf('day').toDate()
+    }
+  }, (err, allTasks) => {
     if (err) return res.status(404).json({ status: 404, error: "Cannot find all tasks"})
 
     res.json(allTasks)

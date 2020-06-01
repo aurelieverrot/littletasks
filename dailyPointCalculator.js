@@ -15,21 +15,19 @@ Kiddo.find({}, (err, allKiddos) => {
   for (let kid of allKiddos) {
     Task.find({
       kiddo: kid._id,
+      status: false,
+      date: {
+        "$gte": today.toDate(),
+        "$lt": moment(today).endOf('day').toDate()
+      }
     }, (err, foundTasks) => {
-      const isAnyTaskLeft = foundTasks.filter(task => task.status == false).length
-
+      // console.log("query for kid", kid._id, foundTasks.length)
+      const noTaskLeft = foundTasks.length == 0
       // update database, increase total points by 1 when isANyTaskLeft not 0
-      if (!isAnyTaskLeft) {
-        let query = {
-          id: kid._id,
-          date: {
-            "$gte": today.toDate(),
-            "$lt": moment(today).endOf('day').toDate()
-          }
-        }
-
-        Kiddo.findByIdAndUpdate(query, { $inc: {totalPoints: 1 }}, (err, updatedKiddo) => {
-          console.log(updatedKiddo)
+      if (noTaskLeft) {
+        console.log("Good job ", kid.name)
+        Kiddo.findByIdAndUpdate(kid._id, { $inc: {totalPoints: 1 }}, (err, updatedKiddo) => {
+          // console.log(updatedKiddo)
         })
       }
     })
