@@ -21,8 +21,7 @@ Kiddo.find({}, (err, allKiddos) => {
         "$lt": moment(today).endOf('day').toDate()
       }
     }, (err, foundTasks) => {
-      // console.log("query for kid", kid._id, foundTasks.length)
-      const noTaskLeft = foundTasks.length == 0
+      const noTaskLeft = foundTasks.length === 0
       // update database, increase total points by 1 when isANyTaskLeft not 0
       if (noTaskLeft) {
         console.log("Good job ", kid.name)
