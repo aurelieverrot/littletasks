@@ -1,9 +1,10 @@
 const db = require('../models');
 const moment = require('moment');
 
-const today = moment().startOf('day');
+
 
 const indexTask = (req, res) => {
+  const today = moment().startOf('day');
   db.Task.find({ 
     status: false,
     date: {
