@@ -30,9 +30,9 @@ https://github.com/aurelieverrot/littletasks-UI
 - Kids receive 1 point a day if they all their tasks are done.
 
 ## What the app doesn't do yet
-[ ] To distribute points, a script needs to be launched everyday. I want to find a way to automate this for the script to be launched every night at 11:59pm (PST). 
+[ ] To distribute points, a script needs to be launched everyday. I want to find a way to automate this for the script to be launched every night at 11:59pm (PST).  
 [ ] Add, update, delete a kid.   
 [ ] I want to create another model Reward. When the user click on a kid's name, he should be redirected to the kid's page where he will find the list of assigned task of the day, the number of points, a form to create a reward. When the user click on the reward, he can also see how many points need to be exchanged to redeem it. And finally, for each redeem the parent should receive an email.  
 [ ] Authentication. A parent should be able to create an account, see only his kids. I would like to have kids' accounts as well with less power to let the kids use the app on their own device.  
-[ ] Adapt the app for mobile use.
+[ ] Adapt the app for mobile use.  
 
